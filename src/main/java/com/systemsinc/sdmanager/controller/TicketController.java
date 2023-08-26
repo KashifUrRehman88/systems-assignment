@@ -51,4 +51,5 @@ public class TicketController {
         ticketService.updateTicketStatus(ticketId, status);
         return ResponseEntity.ok("Ticket status updated successfully");
     }
+
 }

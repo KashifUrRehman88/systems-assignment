@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ReportService {
-
     @Autowired
     private ReportRepository reportRepository;
 
     public void assignReport(Long reportId, String assignee) {
-        Report report = reportRepository.findById(reportId).orElseThrow(() -> new EntityNotFoundException("Report not found"));
+        Report report = reportRepository.findById(reportId)
+                .orElseThrow(() -> new EntityNotFoundException("Report not found"));
         report.setAssignee(assignee);
         report.setStatus("assigned");
         reportRepository.save(report);

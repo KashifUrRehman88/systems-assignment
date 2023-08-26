@@ -43,5 +43,4 @@ public class TicketService {
         Ticket ticket = getTicket(ticketId);
         ticketRepository.delete(ticket);
     }
-
 }
