@@ -7,14 +7,15 @@ JAVA VERSION 17
 
 SPRING BOOT VERSION 3.1.3
 
-MAVEN : - To manage a project's build, reporting and documentation from a central piece of information. Using maven we can build and manage any Java based project.
-
 LOMBOK VERSION 1.18.22 (This library helps us ide to ignore generating boiler plate code for your pojo classes (No need of generating getters, setter explicitly). And this is done during compile time. The main aim of project Lombok is reduce boilerplate headaches out of the developer's task list.)
 
 SPRING-DATA-JPA VERSION  3.1.3 (To store data in a relational database.)
 
 JPA-REPOSITORY (JpaRepository is a JPA (Java Persistence API) specific extension of Repository. It contains the full API of CrudRepository and PagingAndSortingRepository. So it contains API for basic CRUD operations and also API for pagination and sorting. )
 
+H2DATABASE (Just like spring boot provided embedded tomcat server, it also gives embedded database (in-build db) which can be used in some scenarios where you want to show something quickly to someone like POC. Whenever we start or stop application , all previously saved data will be wiped off)
+
+MAVEN : - To manage a project's build, reporting and documentation from a central piece of information. Using maven we can build and manage any Java based project.
 
 
 #  Coding Technique : - 

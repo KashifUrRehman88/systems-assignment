@@ -11,5 +11,5 @@ import java.util.List;
  */
 @Repository
 public interface TicketAuditRepository extends JpaRepository<TicketAudit, Long> {
-    List<TicketAudit> findByTicketIdOrderByUpdatingDateAsc(Long ticketId);
+    List<TicketAudit> findByTicketIdOrderByUpdatedDateAsc(Long ticketId);
 }

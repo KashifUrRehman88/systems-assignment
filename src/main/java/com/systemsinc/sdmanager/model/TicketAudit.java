@@ -21,7 +21,7 @@ public class TicketAudit {
 
     @ManyToOne
     @JoinColumn(name = "ticket_id")
-    private Long ticketId;
+    private Ticket ticket;
 
     private String content;
     private String status;

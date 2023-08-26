@@ -18,7 +18,7 @@ public class TicketAuditListener {
     @PreUpdate
     public void onUpdate(Ticket ticket) {
         TicketAudit auditEntry = new TicketAudit();
-        auditEntry.setTicketId(ticket.getId());
+        auditEntry.setTicket(ticket);
         auditEntry.setStatus(ticket.getStatus()); // Set the new status
         auditEntry.setUpdatedDate(LocalDateTime.now()); // Assuming you have imported LocalDateTime
         // Set other audit fields as needed

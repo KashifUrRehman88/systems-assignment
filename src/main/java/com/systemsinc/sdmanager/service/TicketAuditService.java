@@ -17,7 +17,7 @@ public class TicketAuditService {
     private TicketAuditRepository ticketAuditRepository;
 
     public List<TicketAudit> getTicketHistory(Long ticketId) {
-        return ticketAuditRepository.findByTicketIdOrderByUpdatingDateAsc(ticketId);
+        return ticketAuditRepository.findByTicketIdOrderByUpdatedDateAsc(ticketId);
     }
 
 }
