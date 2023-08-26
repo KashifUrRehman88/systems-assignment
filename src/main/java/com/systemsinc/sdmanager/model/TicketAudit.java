@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author Kashif Ur Rehman
+ */
 @Entity
 @Getter
 @Setter
