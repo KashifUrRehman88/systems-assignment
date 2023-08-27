@@ -12,7 +12,7 @@ CREATE TABLE `report` (
 
 CREATE TABLE `ticket` (
   `id` INT AUTO_INCREMENT  PRIMARY KEY,
-  `report_id` INT,
+  `report_id` INT NOT NULL,
   `content` VARCHAR(250) NOT NULL, <!-- it can be TEXT as well -->
   `status` VARCHAR(50) NOT NULL,
   `technical_feedback` VARCHAR(250) NOT NULL, <!-- it can also be TEXT as well -->
@@ -31,8 +31,14 @@ CREATE TABLE `ticket_audit` (
   FOREIGN KEY (ticket_id) REFERENCES ticket (id)
 );
 
- INSERT INTO `report` (`id`,`status`,`assignee`,`start_date`,`end_date`)
- VALUES (1, 'created','Kashif', CURDATE(), CURDATE());
+-- Insert a row into 'report' table
+INSERT INTO `report` (`status`, `assignee`, `start_date`, `end_date`)
+VALUES ('created', 'John Doe', '2023-08-01', '2023-08-31');
 
-INSERT INTO `ticket` (`ticket_id`, `report_id`, `content`, `status`, `technical_feedback`, `updated_by`, `updated_date`)
- VALUES (1, 1, 'Some content for ticket 1', 'Confirmed', 'Technical feed back provided by client', 'User 1' CURDATE());
+-- Insert a row into 'ticket' table linked to the inserted report
+INSERT INTO `ticket` (`report_id`, `content`, `status`, `technical_feedback`, `updated_by`, `updated_date`)
+VALUES (1, 'Ticket content', 'created', 'No feedback yet', 'Jane Smith', '2023-08-15');
+
+-- Insert a row into 'ticket_audit' table linked to the inserted ticket
+INSERT INTO `ticket_audit` (`ticket_id`, `content`, `status`, `updated_by`, `updated_date`)
+VALUES (1, 'Ticket content', 'created', 'Jane Smith', '2023-08-15');

@@ -38,3 +38,8 @@ Each controller should be responsible for a specific set of related APIs, making
 
 So, that is the reason I have 4 controllers. it's generally recommended to keep separate controllers for different sets of APIs rather than combining multiple APIs into a single controller. This practice aligns well with the principles of modular and maintainable software design.
 
+
+When you will deploy this sdmanager application, you can see hit this URL :- 
+
+http://localhost:8080/h2-console/
+and on next screen , keep the credentials as is and then hit 'Connect', then you will be able to see three tables are created (through the script which I have made in data.sql file)

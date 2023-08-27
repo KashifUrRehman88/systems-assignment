@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -30,6 +31,12 @@ public class Report {
     private String status;
     private String assignee;
 
-    @OneToMany(mappedBy = "report")
+    /*@OneToMany(mappedBy = "report")
+    private List<Ticket> tickets;*/
+
+   /* @OneToMany(mappedBy = "report", cascade = CascadeType.ALL)
+    private List<Ticket> tickets;*/
+
+    @OneToMany(mappedBy = "report", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 }

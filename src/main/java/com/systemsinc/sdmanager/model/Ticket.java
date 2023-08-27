@@ -1,10 +1,10 @@
 package com.systemsinc.sdmanager.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.systemsinc.sdmanager.listener.TicketAuditListener;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,7 +16,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString
 @EntityListeners(TicketAuditListener.class)
 public class Ticket {
 
@@ -25,8 +24,19 @@ public class Ticket {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+  /*  @ManyToOne
     @JoinColumn(name = "report_id")
+    private Report report;*/
+
+
+
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "report_id", nullable = false)
+    private Report report;*/
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "report_id", nullable = false)
     private Report report;
 
     private String content;
@@ -35,7 +45,7 @@ public class Ticket {
     @Column(name="technical_feedback")
     private String technicalFeedback;
 
-    @Column(name="created_by")
+    @Column(name="updated_by")
     private String updatedBy;
 
     @Column(name="updated_date")
@@ -43,6 +53,5 @@ public class Ticket {
 
     @Transient
     private List<TicketAudit> auditHistory = new ArrayList<>();
-
 
 }
